@@ -1,11 +1,26 @@
 package ui;
 
-public class UIMain {
+import java.util.Observable;
 
+public class UIMain extends Observable {
+	
+	private final static UIMain instance = new UIMain();
+	
+	private UIMain() {
+		addObserver(gameEngine.Terminator.getInstance());
+	}
+	
+	public static UIMain getInstace() {
+		return instance;
+	}
+	
 	public static void main(String[] args) {
-		//Starts and runs the applet
-		//Communicates to the AI via IO for move update from the User
-
+		// Starting the Main Menu
+		MainMenuFrame.main(args);
 	}
 
+	public void terminate() {
+		setChanged();
+		notifyObservers();
+	}
 }
