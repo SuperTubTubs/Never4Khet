@@ -1,7 +1,9 @@
 package gameEngine;
 
-import ai.AIMain;
-import ui.UIMain;
+
+
+import io.CommandLineInterfaces;
+
 
 /**
  * This is the boot loader for the AI and UI which use the same i/o interface to communicate.
@@ -13,11 +15,19 @@ public class BootLoader {
 	public static void main(String[] args) 
 	{
 		//Start up UI
-		UIMain.main(args);
+		startUI();
 		//Start up AI
-		AIMain.main(args);
+		startAI();
 		//wait for terminate
 
+	}
+	
+	private static void startAI() {
+		CommandLineInterfaces.startProcess("AI");
+	}
+	
+	private static void startUI() {
+		CommandLineInterfaces.startProcess("UI");
 	}
 
 }

@@ -7,6 +7,9 @@ public class AIMain {
 		//Either polling an interrupt or triggering on the interrupt to kill the decision maker
 		//Look up affinity
 		System.out.println("The AI has started...");
+		while(true) {
+			
+		}
 
 	}
 
